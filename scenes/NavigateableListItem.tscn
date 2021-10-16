@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/NavigateableListItem.gd" type="Script" id=1]
+[ext_resource path="res://icons/NoIcon.png" type="Texture" id=2]
+[ext_resource path="res://scripts/min_size_x_is_hight.gd" type="Script" id=3]
+[ext_resource path="res://scripts/padding_container.gd" type="Script" id=4]
+
+[node name="NavigateableListItem" type="MarginContainer"]
+margin_right = 156.0
+margin_bottom = 156.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_texture = ExtResource( 2 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+margin_right = 156.0
+margin_bottom = 156.0
+mouse_filter = 1
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="AspectRatioContainer"]
+margin_right = 156.0
+margin_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PaddingContainer" type="Container" parent="AspectRatioContainer"]
+margin_right = 156.0
+margin_bottom = 156.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+padding_left = 5
+padding_top = 5
+padding_right = 5
+padding_bottom = 5
+
+[node name="Icon" type="TextureRect" parent="AspectRatioContainer/PaddingContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 151.0
+margin_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 146, 0 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="AspectRatioContainer"]
+margin_top = 128.0
+margin_right = 156.0
+margin_bottom = 156.0
+mouse_filter = 2
+size_flags_vertical = 8
+
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 149.0
+margin_bottom = 21.0
+text = "Title"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="focus_entered" from="AspectRatioContainer/Button" to="." method="_on_Button_focus_entered"]
+[connection signal="pressed" from="AspectRatioContainer/Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/NavigateableList.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/GameLauncher.gd" type="Script" id=2]
+[ext_resource path="res://scripts/spinning-loading.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.748344 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1
+
+[node name="GameLauncher" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NavigateableList" parent="." instance=ExtResource( 1 )]
+anchor_top = 0.279667
+anchor_right = 1.0
+anchor_bottom = 0.747
+margin_top = 0.199989
+margin_right = 0.0
+margin_bottom = -0.200043
+grow_vertical = 2
+
+[node name="SpinningLoading" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -30.0
+margin_right = 30.0
+margin_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource( 2 )
+stretch_mode = 1
+script = ExtResource( 3 )

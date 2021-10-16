@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://screens/LoginScreen.gd" type="Script" id=1]
+[ext_resource path="res://screens/GameLauncher.tscn" type="PackedScene" id=2]
+
+[node name="LoginScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+launcher = ExtResource( 2 )
+
+[node name="SID" type="HBoxContainer" parent="."]
+margin_right = 656.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SID"]
+margin_top = 13.0
+margin_right = 30.0
+margin_bottom = 27.0
+text = "SID: "
+
+[node name="SIDEdit" type="LineEdit" parent="SID"]
+margin_left = 34.0
+margin_right = 656.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoginButton" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 56.0
+margin_right = 224.0
+margin_bottom = 76.0
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="LoginButton" to="." method="_on_LoginButton_pressed"]
